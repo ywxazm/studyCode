@@ -1,0 +1,9 @@
+server:
+  port: 3005
+spring:
+  application:
+    name: springboot-zookeeper
+
+zk.addr: 127.0.0.1
+zk.port: 1003
+zk.timeout: 30000

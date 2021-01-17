@@ -1,0 +1,12 @@
+server:
+  port: 3002
+spring:
+  application:
+    name: springcloud-mongodb
+  data:
+    mongodb:
+#      uri: mongodb://127.0.0.1:27017/mydb
+      uri: mongodb://h5-compose-user:123456@192.168.206.13:3717/h5-compose-db
+logging:
+  level:
+    root: debug

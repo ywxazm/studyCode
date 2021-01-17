@@ -1,0 +1,15 @@
+server:
+  port: 2007
+spring:
+  application:
+    name: /zk-consumer
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:1003
+      dependencies:
+        service-zookeeper:
+          path: /zk-provider
+          required: true
+      discovery:
+        register: false
+        root: /zk

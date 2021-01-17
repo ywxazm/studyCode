@@ -1,0 +1,6 @@
+MongoDB                         Redis
+TPS较高                           TPS极高
+有索引,可添加条件进行查询           只支持5种数据类型
+适合大数据存储                     可设置时效
+binlog方式支持持久化               AOF/RDF持久化
+

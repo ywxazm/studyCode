@@ -1,0 +1,21 @@
+server:
+  port: 1102
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1001/eureka/
+
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: test
+  cloud:
+    config:
+      uri: http://127.0.0.1:1101  #摘取地址
+      label: master   #拉取分支   以下三种共同决定文件名: /{label}/{application}-{profile}.yml
+      name: config    #拉取文件名
+      profile: dev   #拉取环境
+
+

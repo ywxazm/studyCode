@@ -1,0 +1,110 @@
+一.  Rabbit的重要概念
+    1.生产者
+    2.消费者
+    3.消息
+    4.队列Queue           存储消息的缓存
+    5.交换机Exchange      从生产者处接收消息, 并根据交换类型分发至对应队列
+    6.绑定Binding         绑定队列与交换机
+    7.路由键Routing Key   交换机根据Routing Key来决定消息分发至哪个队列
+
+二.  Rabbit MQ的工作流程
+    1.生产者生产消息, 并发送给交换机
+    2.交换机根据路由键决定分发消息至哪个队列
+    3.消费者消费队列消息, 并发送ACK给队列
+    4.队列删除此消息
+
+三.RabbitMQ的几种模式
+    1.不使用exchange(交换器)的情况
+        1)simple    produce --- Queue --- consumer
+        2)work      produce --- Queue --- consumer01, consumer02....
+
+    2.使用exchange(交换器)的情况
+        1)Direct    直接      通过消息上的Routing Key, 直接将消息分发至队列(完全匹配)
+        2)Fanout    广播(发布订阅)      将消息分发至所有和交换机绑定的队列上
+        3)Topic     主题      将Routing Key和绑定上的模式进行通配符匹配(规则匹配)
+        4)Headers   消息头    使用消息头的属性进行路由
+
+五.auto_ack = true情况下, 队列对ACK的处理
+    1.消费者接收消息, 发送ACK, MQ删除这条消息
+    2.消费者接收消息, 但在ACK前与MQ断开连接, MQ认为这条消息没有被消费, 将两次投递
+    3.消费者接收消息, 由于程序Bug, 没有ACK, MQ不会重复发送投递
+
+六.JMS和AMQP的区别
+    JMS:    是Java统一的接口, 支持点对点和订阅/发布, 订阅/发布模式下, 生产者生产消息后, 所有消费者都能够收到消息, 如ActiveMQ, RocketMQ
+    AMQP:   是一种协议, 是跨语言的, 可以绑定特定的Routing Key, 让一部份消费者收到消息, 如RabbitMQ
+
+七. 消息确认机制
+    1.生产者 --> MQ    消息发送确认
+        1)ConfirmCallback   消息发送到交换器时, 无论成功失败都触发
+        2)ReturnCallback    交换器发送到对应队列失败时触发
+
+    2.MQ --> 消费者    消息消费确认
+        AcknowledgeMode.NONE：不确认
+        AcknowledgeMode.AUTO：自动确认
+        AcknowledgeMode.MANUAL：手动确认
+
+八.重试机制
+    消费者未给出应答时, 使用重试机制来做补偿, 关键词: 间隔时间,重试次数,最大重试间隔时间,乘子
+
+
+
+
+
+Kafka
+一.Kafka的概述
+    Kafka是一个基于 发布/订阅 模式的消息队列, 以Topic进行分类
+
+二.消息队列的2种模式
+    1.点对点
+        消费者主动拉数据, 收到数据后, 消息清除
+    2.发布/订阅
+        发布到topic中的消息, 会被所有订阅者消费, 消费完数据后, 也不会清除消息
+
+三.Kafka架构
+    1.Broker    Kafka集群中的服务器
+    2.Producer  生产者
+    3.Consumer  消费者
+    4.Consumer Group    消费者组, 是逻辑上的一个订阅者
+    5.Topic     消息的类别
+    6.Partition 消息的类别分区, 是一个有序队列
+    7.Replica   分区的副本
+    8.Leader    分区副本的主
+    9.Follower  分区副本的从, 与Leader数据实时同步
+
+四.Kafka工作流程和文件存储机制
+    1.topic是逻辑概念, partition是物理概念
+    2.每个partition对应一个log文件, log文件存储消息, 每条消息都有自己的offset
+    3.每个消费者都会记录自己消费到了哪个offset, 以便出错时恢复
+
+五.分区的原因
+    Kafka以partition为单位进行读写, 可以提升效率, 且方便扩展
+
+六.  生产者 -> MQ 数据可靠性保证
+    应答机制, Kafka提供三级的可靠性保证, 设置spring.kafka.producer.acks
+    = 0,    无需应答, broker故障会导致数据丢失
+    = 1,    partition中的Leader落盘后应答, 若此时Leader故障, 会导致数据丢失
+    = -1,   partition中Leader,Follower落盘后, partition应答前, Leader故障, 会导致数据重复
+
+七.Partition的故障及恢复
+   1.Partition中的Leader故障后, 会重新选举新的Leader
+   2.Partition中的Follower故障后, 会将其剔除\
+   3.待它们恢复正常后, 会从Leader同步数据, 同步完成后重新加入
+
+八.幂等性问题
+    1.ack = -1时, 不会有数据丢失, 但会有数据重复
+    2.ack = 0,1时, 不会有数据重复, 但会有数据丢失
+    3.引入ID, 以<PID, Partition, SeqNumber>作为持久化条件, 只持久化一次, 但依旧无法解决跨区时的数据重复
+
+九.Kafka消费者
+    1.消费方式
+        拉pull, 以应对不同处理能力的consumer, 但可能会导致consumer不断拉取空
+    2.分区分配策略
+        由哪个consumer来处理哪个partition处理, Kafka提供2种策略:
+           1)RoundRobin
+           2)Range
+
+十.ZK在Kafka中的作用
+    partition的Leader选举
+
+
+

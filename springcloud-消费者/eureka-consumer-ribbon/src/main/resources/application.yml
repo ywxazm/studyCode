@@ -1,0 +1,20 @@
+server:
+  port: 2003
+spring:
+  application:
+    name: eureka-consumer-ribbon
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1001/eureka/
+
+#ribbon配置
+#eureka-provider:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.randomrule #随机策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #轮询策略(默认)
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule #重试策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule #最低并发策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.AvailabilityFilteringRule #可用过滤策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.ResponseTimeWeightedRule #响应时间加权重策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.ZoneAvoidanceRule #区域权重策略

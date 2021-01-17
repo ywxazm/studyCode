@@ -1,0 +1,27 @@
+server:
+  port: 2003
+spring:
+  application:
+    name: eureka-consumer
+
+#Eureka配置
+eureka:
+#  instance:
+#    hostname: eureka-consumer
+#    ip-address: 127.0.0.1
+#    instance-id: 127.0.0.1:2003 #注册的ID
+#    lease-renewal-interval-in-seconds: 10 #Client向Server发送心跳频率, 默认30s
+#    lease-expiration-duration-in-seconds: 90 #两次心跳最高间隔时间, 大于此值时, Server移除Client, 默认90s
+#    prefer-ip-address: false #是否将IP注册到eureka, 否则将主机名注册到eureka
+  client:
+#    register-with-eureka: true #是否注册到eureka
+#    fetch-registry: true #是否从eureka是获取实例
+#    filter-only-up-instances: true  #获取实例时是否只保留状态为 UP 的实例, 默认true
+#    eureka-connection-idle-timeout-seconds: 30  #空闲连接的关闭时间, 默认30s
+#    eureka-server-connect-timeout-seconds: 5    #连接Eureka服务器的超时时间, 默认5s
+#    eureka-server-read-timeout-seconds: 8   #从Eureka服务器读取信息的超时时间, 默认8s
+#    eureka-server-total-connections: 1    #Eureka客户端到Eureka服务端连接总数, 默认200
+#    eureka-server-total-connections-per-host: 1    #Eureka客户端到Eureka服务主机的连接总数, 默认50
+#    registry-fetch-interval-seconds: 30 #客户端拉取服务注册信息间隔, 默认30s
+    service-url:
+      defaultZone: http://127.0.0.1:1001/eureka  #需要注册的eureka地址

@@ -1,0 +1,19 @@
+server:
+  port: 3010
+
+dubbo:
+  application:
+    name: springboot-dubbo-provider
+  registry:
+    address: 127.0.0.1:1003
+    protocol: zookeeper
+    check: false
+  protocol:
+    name: dubbo
+    port: 30003
+    server: tomcat
+  monitor:
+    protocol: register
+  consumer:
+    check: false
+    timeout: 3000

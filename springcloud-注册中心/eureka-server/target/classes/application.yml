@@ -1,0 +1,37 @@
+server:
+  port: 1001  #应用端口号
+spring:
+  application:
+    name: eureka-server #应用名
+
+#Eureka配置
+eureka:
+  instance:
+#    hostname: eureka-server
+#    ip-address: 127.0.0.1
+#    instance-id: 127.0.0.1:1001 #注册的ID
+#    lease-renewal-interval-in-seconds: 10 #Client向Server发送心跳频率, 默认30s
+#    lease-expiration-duration-in-seconds: 90 #两次心跳最高间隔时间, 大于此值时, Server移除Client, 默认90s
+#    prefer-ip-address: true #是否将IP注册到eureka, 否则将主机名注册到eureka
+#  server:
+#    peer-eureka-nodes-update-interval-ms: 3 #集群之间相互更新节点信息的时间频率
+#    enable-self-preservation: true #开启自我保护,默认为true
+#    renewal-percent-threshold: 0.85 #开启自我保护机制的系数
+#    eviction-interval-timer-in-ms: 60000 #自动清理无效节点的频率, 默认60s, 单位ms
+  client:
+    register-with-eureka: false #是否注册到eureka
+    fetch-registry: false #是否从eureka是获取实例
+#    filter-only-up-instances: true  #获取实例时是否只保留状态为 UP 的实例, 默认true
+#    eureka-connection-idle-timeout-seconds: 30  #空闲连接的关闭时间, 默认30s
+#    eureka-server-connect-timeout-seconds: 5    #连接Eureka服务器的超时时间, 默认5s
+#    eureka-server-read-timeout-seconds: 8   #从Eureka服务器读取信息的超时时间, 默认8s
+#    eureka-server-total-connections: 1    #Eureka客户端到Eureka服务端连接总数, 默认200
+#    eureka-server-total-connections-per-host: 1    #Eureka客户端到Eureka服务主机的连接总数, 默认50
+#    registry-fetch-interval-seconds: 30 #客户端拉取服务注册信息间隔, 默认30s
+    service-url:
+      defaultZone: http://127.0.0.1:1001/eureka  #需要注册的eureka地址
+
+#日志
+logging:
+  level:
+    org.springframework: info

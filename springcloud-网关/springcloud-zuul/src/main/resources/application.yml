@@ -1,0 +1,15 @@
+server:
+  port: 1004
+spring:
+  application:
+    name: springcloud-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1001/eureka/
+
+#Zuul配置
+#zuul:
+#  routes:
+#    EUREKA-CONSUMER:
+#      path: /api-consumer/**

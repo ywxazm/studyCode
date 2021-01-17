@@ -1,0 +1,7 @@
+执行流程
+    if(@Condition) {
+        执行@Action
+    }
+
+类上标识@Rule
+

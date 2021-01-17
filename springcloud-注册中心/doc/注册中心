@@ -1,0 +1,103 @@
+一.  Eureka使用到的注解
+    @EnableEurekaServer     启动类上,声明这是一个Eureka的服务器端
+    @EnableEurekaClient     启动类上,声明这是一个Eureka的客户端
+    @EnableDiscoveryClient  启动类上,声明这是一个Eureka或ZK的客户端, 是spring-cloud-commons定义的注解
+
+二.  Eureka各角色的工作
+a)	注册中心    启动后拉取节点服务注册信息, 运行中会定时剔除没有心跳的服务提供者(包括网络故障), 运行中接收到服务提供者请求, 会同步到其它节点
+b)	提供者 启动时向注册中心注册服务, 运行中发送心跳, 停止时清空当前注册信息
+c)	消费者 启动后拉取服务注册信息, 运行中定时更新服务注册信息, 起调用时, 优先选取同机房服务提供者, 若没有提供者(或提供者挂了), 才会基于负载均衡选取其它服务提供者
+
+三.  Eureka工作流程
+a)	Server启动时，若配置了集群，集群之间定时通过 Replicate 同步注册表，各 Server 都存在独立完整的服务注册表信息
+b)	Client启动时, 根据配置的 Server 地址去注册中心注册服务
+c)	Client 每 30s 向 Server 发送一次心跳请求，证明客户端服务正常
+d)	当 Server 90s 内没有收到 Client 的心跳，注册中心则认为该节点失效，注销该实例
+e)	一段时间内 Server 统计到有大量的 Client 没有上送心跳，则认为可能为网络异常，进入自我保护机制，不再剔除没有上传心跳的客户端
+f)	当 Client 心跳请求恢复正常之后，Eureka Server 自动退出自我保护模式
+g)	Client 定时全量或者增量从注册中心获取服务注册表，并且将获取到的信息缓存到本地
+h)	服务调用时, Client 会先从本地缓存找寻调取的服务。若获取不到，则从注册中心刷新注册表，再同步到本地缓存
+i)	Client 获取到目标服务器信息，发起服务调用
+j)	Client 程序关闭时, 向 Server 发送取消请求, Server 将实例从注册表中删除
+
+四.  Eureka的几种机制
+a)	服务注册机制	服务启动时,将服务信息发送给 Server, Server写入本地, 并异步同步至其它节点
+b)	服务续约机制	心跳机制, Client 向 Server 发起, 重置过期时间, 如在规定时间内不发起, 则服务被剔除
+c)	服务注销机制	删除 Server 上的 Client 信息
+d)	服务剔除机制	Server 定期 60s 检查失效的服务, 若有则剔除
+e)	服务获取机制	启动时全量式获取, 运行过程中增量式获取
+f)	服务同步机制    启动时同步和运行时同步
+
+五.  自我保护机制
+Server 在 90s 内没有接收到 Client 的心跳,则会将 Client 从注册列表中剔除, 但一旦大量剔除,会影响系统可用性
+a)	触发	当15分钟内心跳成功率低于15%,而触发自我保护机制, 自我保护机制会造成如下情况:
+            1.	Server 不从注册列表中剔除长时间无心跳的Client
+            2.	Server 可接收 Client 的注册和查询, 但不同步到其它节点
+            3.	当网络稳定后,当前 Server 的注册信息会同步到其它节点
+b)	退出	当再次接收到客户端的心跳, 退出自我保护
+
+六.  Eureka比ZooKeeper比较
+a)  Eureka:     保证可用性和分区容错性(AP)
+                各节点平等, 当部分节点失去连接时, 其它节点也可提供服务
+                无法实现强一致性, 只能保证最终一致性, 可能会导致调用失败
+b)  Zookeeper:  保证强一致性和分区容错性(CP)
+                当master失去连接, 则停止服务重新选举
+
+七. CAP理论
+CAP指分布式系统的三个特性, 最多满足两个特性
+a)	C	一致性		数据实时一致性
+b)	A	可用性		系统永远可用
+c)	P	分区容错性	各服务器间通信故障特征, 不可避免特征
+
+八.  Base理论
+是CAP理论的延伸
+a)	基本可用性		相对于可用性, 在响应时间上有延时
+b)	软状态		    相对于一致性, 不同节点数据一致会有延时, 延时的中间状态即软状态
+c)	最终一致性		软状态过后, 即实现最终一致性
+
+九.  Eureka和Dubbo对象传输的差异
+a)  Eureka: 以字符流形式传输, 传输对象不需要实现序列化接口
+b)  Dubbo:  以字节流形式传输, 传输对象需要实现序列化接口, 会用到ObjectOutputStream
+
+十. Eureka-Instance配置
+eureka:
+  instance:
+    instance-id: 127.0.0.1:1001 #注册的ID
+    lease-renewal-interval-in-seconds: 5 #Client向Server发送心跳频率, 默认30s
+    lease-expiration-duration-in-seconds: 15 #两次心跳最高间隔时间, 大于此值时, Server移除Client, 默认90s
+
+十. Eureka-Server配置
+eureka:
+  server:
+    peer-eureka-nodes-update-interval-ms: 3 #集群之间相互更新节点信息的时间频率
+    enable-self-preservation: true #开启自我保护,默认为true
+    renewal-percent-threshold: 0.85 #开启自我保护机制的系数
+    eviction-interval-timer-in-ms: 60000 #自动清理无效节点的频率, 默认60s, 单位ms
+
+十一. Eureka-Client配置
+eureka:
+  client:
+    register-with-eureka: true #是否注册到eureka
+    fetch-registry: true #是否从eureka是获取实例
+    filter-only-up-instances: true  #获取实例时是否只保留状态为 UP 的实例, 默认true
+    eureka-connection-idle-timeout-seconds: 30  #空闲连接的关闭时间, 默认30s
+    eureka-server-connect-timeout-seconds: 5    #连接Eureka服务器的超时时间, 默认5s
+    eureka-server-read-timeout-seconds: 8   #从Eureka服务器读取信息的超时时间, 默认8s
+    eureka-server-total-connections: 200    #Eureka客户端到Eureka服务端连接总数, 默认200
+    eureka-server-total-connections-per-host: 50    #Eureka客户端到Eureka服务主机的连接总数, 默认50
+    registry-fetch-interval-seconds: 30 #客户端拉取服务注册信息间隔, 默认30s
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka  #需要注册的eureka地址
+
+十三. 缓存及延时问题
+a)	不使用spring cloud组件, 在启动时不向Eureka注册, 在第一次心跳请求才注册, 心跳请求间隔30s
+b)	Eureka对http请求缓存30s, 一段时间相同的http请求, 返回同样结果
+c)	服务B对注册信息缓存30s, 一段时间不更新注册信息
+d)	Ribbon组件缓存30s, 一段时间不更新缓存信息
+
+十四. Eureka,Zookeeper,Nacos差别
+            Eureka      Zookeeper       Nacos
+CAP           AP          CP            AP+CP
+雪崩保护      有          无              有
+访问协议     Http         TCP            Http
+

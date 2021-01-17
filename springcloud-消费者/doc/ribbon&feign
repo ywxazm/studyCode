@@ -1,0 +1,53 @@
+一.  负载均衡的种类
+    1.服务器端负载均衡, 如Nginx
+    2.客户端负载均衡, 如dubbo,ribbon
+
+二.  Ribbon的负载均衡
+    1)默认的负载均衡策略
+        使用方式: 服务名.ribbon.NFLoadBalancerRuleClassName = 负载均衡具体实现类路径
+        1.RandomRule    随机
+        2.RoundRobinRule    轮询（默认）
+        3.BestAvailableRule     最小并发
+        4.RetryRule     重试，默认使用轮询方式
+        5.WeightedResponseTimeRule      根据响应时间自动分配一个权重
+        6.ZoneAvoidanceRule     根据server所在区域的性能和server的可用性来综合选择
+        7.AvailabilityFilteringRule     过滤掉一直连接失败的server和高并发的server
+
+    2)自定义负载均衡策略
+        1.自定义负载均衡具体实现类, 继承AbstractLoadBalancerRule类
+        2.启动类添加@RibbonClient(name = "服务名", configuration = 负载均衡具体实现类.class)
+
+    3)Ribbon负载均衡三大组件
+        1.负载规则      决定使用哪个Server
+        2.Ping任务      验证Server是否可用
+        3.服务器列表    以供选择的Server列表
+
+    4)Ribbon负载均衡的三种配置方式(优先级由 高 -> 低)
+        1.@RibbonClient     可对每一服务配置一种策略
+        2.@RibbonClients    即可设置全局策略, 也可针对单一服务设置策略
+        3.服务名.ribbon.NFLoadBalancerRuleClassName = 负载均衡具体实现类路径      同上
+
+二.  Ribbon的重试配置
+    spring.cloud.loadbalancer.retry.enabled = true #开启重试机制(默认关闭)
+    service-product: #调用的服务名称
+      ribbon:
+        ConnectTimeout: 250 # 连接超时时间
+        ReadTimeout: 1000 # 数据读取超时时间
+        OkToRetryOnAllOperations: true # 是否对所有操作都进行重试
+        MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+        MaxAutoRetries: 1 # 对当前实例的重试次数
+
+三.  Ribbon & Feign & OpenFeign的关系
+    1.Feign封装了Ribbon
+    2.OpenFeign在Feign基础上, 支持了SpringMVC的注解
+    3.Feign通过动态代理的方式产生实现类
+
+四.  Rest和RPC的对比
+                    传输协议          传输效率                      性能消耗
+    Http              http            协议包含无用内容,效率低      字节大小较大
+    RPC         http/tcp/自定义tcp     自定义协议内容              字节大小较小
+
+五.  Ribbon & Feign 注解及作用
+    1.@LoadBalanced 开启负载均衡
+    2.@FeignClient("服务名") 作用在接口上, 表示此接口提供某服务
+    3.@EnableFeignClients("客户端接口路径")    作用在启动类上, 指定提供服务的接口

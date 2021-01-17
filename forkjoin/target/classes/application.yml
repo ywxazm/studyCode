@@ -1,0 +1,17 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: springboot
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mydb?useSSL=false&characterEncoding=utf-8&useUnicode=true&allowMultiQueries=true
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.ymj.boot.pojo
+logging:
+  level:
+    root: debug

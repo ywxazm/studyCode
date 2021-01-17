@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot (1)" />
+        <module name="springcloudconfig-server" />
+        <module name="prefix-tree" />
+        <module name="hash" />
+        <module name="stack" />
+        <module name="nacos-consumer" />
+        <module name="lucene-create-index" />
+        <module name="springboot-dubbo-consumer" />
+        <module name="nacos-client" />
+        <module name="排序" />
+        <module name="springcloud-zuul" />
+        <module name="springboot-redisson" />
+        <module name="springboot-zookeeper" />
+        <module name="springboot-rabbit-produce" />
+        <module name="springboot-rabbit-consumer" />
+        <module name="call" />
+        <module name="eureka-provider-cluster-03" />
+        <module name="eureka-provider-cluster-02" />
+        <module name="eureka-provider-cluster-01" />
+        <module name="springboot-dubbo-provider" />
+        <module name="springboot-jedis" />
+        <module name="forkjoin" />
+        <module name="springboot" />
+        <module name="springcloud-mongodb" />
+        <module name="eureka-consumer-ribbon" />
+        <module name="springcloud-kafka-produce" />
+        <module name="called" />
+        <module name="springboot-dubbo-api" />
+        <module name="zk-provider" />
+        <module name="tree" />
+        <module name="nacos-provider" />
+        <module name="queue" />
+        <module name="service-consumer" />
+        <module name="springcloudconfig-client" />
+        <module name="eureka-consumer" />
+        <module name="eureka-server" />
+        <module name="array" />
+        <module name="eureka-consumer-feign" />
+        <module name="thread" />
+        <module name="service-provider" />
+        <module name="easy_rules" />
+        <module name="创建数据" />
+        <module name="springcloud-kafka-consumer" />
+        <module name="linked" />
+        <module name="graph" />
+        <module name="springboot-rabbit-config" />
+        <module name="eureka-provider" />
+        <module name="zk-consumer" />
+        <module name="lambda" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="array" target="1.8" />
+      <module name="call" target="1.8" />
+      <module name="called" target="1.8" />
+      <module name="dubbo-interface" target="1.8" />
+      <module name="easy_rules" target="1.8" />
+      <module name="encrypt" target="1.8" />
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-consumer" target="1.8" />
+      <module name="eureka-consumer-feign" target="1.8" />
+      <module name="eureka-consumer-ribbon" target="1.8" />
+      <module name="eureka-consumer-ribbon (1)" target="1.6" />
+      <module name="eureka-provider" target="1.8" />
+      <module name="eureka-provider (1)" target="1.8" />
+      <module name="eureka-provider (2)" target="1.8" />
+      <module name="eureka-provider (3)" target="1.8" />
+      <module name="eureka-provider-01" target="1.8" />
+      <module name="eureka-provider-01 (1)" target="1.8" />
+      <module name="eureka-provider-02" target="1.8" />
+      <module name="eureka-provider-cluster-01" target="1.8" />
+      <module name="eureka-provider-cluster-02" target="1.8" />
+      <module name="eureka-provider-cluster-03" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="eureka-server (1)" target="1.8" />
+      <module name="forkjoin" target="1.8" />
+      <module name="graph" target="1.8" />
+      <module name="hash" target="1.8" />
+      <module name="lambda" target="1.8" />
+      <module name="linked" target="1.8" />
+      <module name="lucene" target="1.8" />
+      <module name="lucene-create-index" target="1.8" />
+      <module name="nacos-client" target="1.8" />
+      <module name="nacos-consumer" target="1.8" />
+      <module name="nacos-provider" target="1.8" />
+      <module name="nacos-server" target="1.6" />
+      <module name="prefix-tree" target="1.8" />
+      <module name="queue" target="1.8" />
+      <module name="service-consumer" target="1.8" />
+      <module name="service-provider" target="1.8" />
+      <module name="spirngboot-rabbit-consumer" target="1.8" />
+      <module name="springboot" target="1.8" />
+      <module name="springboot (1)" target="1.8" />
+      <module name="springboot-dubbo" target="1.8" />
+      <module name="springboot-dubbo-api" target="1.8" />
+      <module name="springboot-dubbo-consumer" target="1.8" />
+      <module name="springboot-dubbo-provider" target="1.8" />
+      <module name="springboot-jedis" target="1.8" />
+      <module name="springboot-kafka-provider" target="1.6" />
+      <module name="springboot-rabbit-config" target="1.8" />
+      <module name="springboot-rabbit-consumer" target="1.8" />
+      <module name="springboot-rabbit-produce" target="1.8" />
+      <module name="springboot-rabbit-produce (1)" target="1.8" />
+      <module name="springboot-rabbit-produce (2)" target="1.8" />
+      <module name="springboot-redisson" target="1.8" />
+      <module name="springboot-redisson (1)" target="1.8" />
+      <module name="springboot-zookeeper" target="1.8" />
+      <module name="springcloud-kafka-consumer" target="1.8" />
+      <module name="springcloud-kafka-produce" target="1.8" />
+      <module name="springcloud-kafka-provider" target="1.8" />
+      <module name="springcloud-kafka-provider (1)" target="1.6" />
+      <module name="springcloud-mongodb" target="1.8" />
+      <module name="springcloud-rabbit-produce" target="1.8" />
+      <module name="springcloud-zuul" target="1.8" />
+      <module name="springcloudconfig-client" target="1.8" />
+      <module name="springcloudconfig-server" target="1.8" />
+      <module name="srpingboot-redisson" target="1.8" />
+      <module name="stack" target="1.8" />
+      <module name="thread" target="1.8" />
+      <module name="tree" target="1.8" />
+      <module name="util" target="1.8" />
+      <module name="zk-consumer" target="1.8" />
+      <module name="zk-provider" target="1.8" />
+      <module name="zk-provider (1)" target="1.6" />
+      <module name="内部排序-归并排序" target="1.8" />
+      <module name="内部排序-归并排序 (1)" target="1.8" />
+      <module name="内部排序-插入排序-直接插入排序" target="1.8" />
+      <module name="创建数据" target="1.8" />
+      <module name="排序" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="easy_rules" options="" />
+      <module name="eureka-consumer" options="-parameters" />
+      <module name="eureka-consumer-feign" options="-parameters" />
+      <module name="eureka-consumer-ribbon" options="-parameters" />
+      <module name="eureka-provider" options="-parameters" />
+      <module name="eureka-provider (1)" options="-parameters" />
+      <module name="eureka-provider (2)" options="-parameters" />
+      <module name="eureka-provider (3)" options="-parameters" />
+      <module name="eureka-provider-01" options="-parameters" />
+      <module name="eureka-provider-02" options="-parameters" />
+      <module name="eureka-provider-cluster-01" options="-parameters" />
+      <module name="eureka-provider-cluster-02" options="-parameters" />
+      <module name="eureka-provider-cluster-03" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="forkjoin" options="-parameters" />
+      <module name="service-consumer" options="-parameters" />
+      <module name="service-provider" options="-parameters" />
+      <module name="spirngboot-rabbit-consumer" options="-parameters" />
+      <module name="springboot" options="-parameters" />
+      <module name="springboot (1)" options="-parameters" />
+      <module name="springboot-jedis" options="-parameters" />
+      <module name="springboot-rabbit-config" options="-parameters" />
+      <module name="springboot-rabbit-consumer" options="-parameters" />
+      <module name="springboot-rabbit-produce" options="-parameters" />
+      <module name="springboot-rabbit-produce (1)" options="-parameters" />
+      <module name="springboot-rabbit-produce (2)" options="-parameters" />
+      <module name="springboot-redisson" options="-parameters" />
+      <module name="springboot-redisson (1)" options="-parameters" />
+      <module name="springcloud-kafka-consumer" options="-parameters" />
+      <module name="springcloud-kafka-produce" options="-parameters" />
+      <module name="springcloud-kafka-provider" options="-parameters" />
+      <module name="springcloud-mongodb" options="-parameters" />
+      <module name="springcloud-rabbit-produce" options="-parameters" />
+      <module name="srpingboot-redisson" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springcloud-eureka/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/eureka-client/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/eureka-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/eureka-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/nacos-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/nacos-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/zk-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka/zk-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/zk-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/zk-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/nacos-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/nacos-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消费者/eureka-consumer-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消费者/eureka-consumer-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-配置中心/springcloudconfig-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-配置中心/springcloudconfig-client/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-配置中心/nacos-client/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-容错/service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-容错/service-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-网关/springcloud-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-缓存/springcloud-mongodb/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消息/springcloud-kafka-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/callback/called/pom.xml" />
+        <option value="$PROJECT_DIR$/callback/call/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-锁/springboot-zookeeper/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消息/springcloud-kafka-produce/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消息/springboot-rabbit-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消息/springboot-rabbit-produce/pom.xml" />
+        <option value="$PROJECT_DIR$/加密解密/encrypt/pom.xml" />
+        <option value="$PROJECT_DIR$/util/pom.xml" />
+        <option value="$PROJECT_DIR$/工具类/util/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo/springboot-dubbo-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo/springboot-dubbo-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo/springboot-dubbo-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/全文搜索/Lucene-create-index/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/array/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/tree/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/stack/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/queue/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/prefix-tree/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/linked/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/hash/pom.xml" />
+        <option value="$PROJECT_DIR$/数据结构/graph/pom.xml" />
+        <option value="$PROJECT_DIR$/排序/创建数据/pom.xml" />
+        <option value="$PROJECT_DIR$/算法/排序/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-降级和熔断/service-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-降级和熔断/service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-provider-cluster-01/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-provider-cluster-02/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-provider-cluster-03/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-锁/springboot-redisson/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-缓存/springboot-jedis/pom.xml" />
+        <option value="$PROJECT_DIR$/lambda/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-消息/springboot-rabbit-config/pom.xml" />
+        <option value="$PROJECT_DIR$/规则引擎/easy_rules/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/thread/pom.xml" />
+        <option value="$PROJECT_DIR$/forkjoin/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springcloud-注册中心/eureka-client/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

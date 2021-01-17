@@ -1,0 +1,17 @@
+server:
+  port: 3006
+spring:
+  application:
+    name: springboot-rabbit-consumer
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+#        retry:
+#          enabled: true
+#          multiplier: 2 # 乘子
+#          max-attempts: 5 # 最大重试次数
+#          initial-interval: 3000 # 第一次和第二次之间的重试间隔，后面的用乘子计算
+#          max-interval: 3600000 # 最大重试时间间隔

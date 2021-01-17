@@ -1,0 +1,20 @@
+server:
+  port: 2009
+spring:
+  application:
+    name: service-consumer
+
+#Eureka配置
+eureka:
+  instance:
+    instance-id: 127.0.0.1:2009 #注册的ID
+    prefer-ip-address: true #是否将IP注册到eureka, 否则将主机名注册到eureka
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1001/eureka/
+
+#开启断路器
+feign:
+  hystrix:
+    enabled: true
+

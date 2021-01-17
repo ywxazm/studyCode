@@ -1,0 +1,17 @@
+server:
+  port: 3003
+
+spring:
+  kafka:
+    bootstrap-servers: 127.0.0.1:1008 # 指定kafka 代理地址，可以多个
+    producer:
+      acks: 0
+                # 写入kafka时,leader负责该partion读写，当写入partition时，需要将记录同步到repli节点，all是全部同步节点都返回成功，leader才返回ack。
+                # =0，不需要应答, 生产者认为发送成功,且重试配置不生效
+                # =1, leader记录至本地日志, 无需所有副本服务器完全确认即可应答, 若leader记录后, 未复制到其它复本之前宕机, 则记录丢失
+                # =all, leader在所有副本同步后应答
+      batch-size: 16384   #每次批量发送消息的数量,produce积累到一定数据，一次发送
+      buffer-memory: 33554432   #produce积累数据一次发送缓存大小达到buffer.memory就发送数据
+      retries: 0  #写入失败重试次数
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer  # 指定消息key和消息体的编解码方式
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer  # 指定消息key和消息体的编解码方式

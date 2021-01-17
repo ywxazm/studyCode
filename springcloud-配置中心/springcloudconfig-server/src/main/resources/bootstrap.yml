@@ -1,0 +1,20 @@
+server:
+  port: 1101
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1001/eureka/
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ywxazm/config-repo.git
+          basedir: C:\Users\2402\Desktop\target   #保存在本地的地址
+          force-pull: true    #强制拉取
+
+

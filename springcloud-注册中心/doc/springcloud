@@ -1,0 +1,34 @@
+一.  微服务
+a)  将应用程序划分为小的服务, 并且独立部署, 各服务之间一般用RestFul API进行通信的一种架构
+b)  优点: 易于开发,维护,部署
+c)  缺点: 分布式的复杂性, 如事务处理
+
+二.  SpringBoot和SpringCloud
+a)  SpringBoot      用于单个微服务的开发
+b)  SpringCloud     用于微服务之间的协调处理
+
+三.  Spring Cloud五大核心组件
+a)	Config	    配置中心
+b)	Eureka		服务注册与发现
+c)	Ribbon		远程调用, 负载均衡
+d)	Hystrix		断路器
+e)	Zuul		服务网关
+
+四. Spring全家桶常用框架
+a)	Spring FrameWork	Spring基础结构支持, 包括IOC, AOP, Bean管理, Context上下文, mvc等
+b)	Spring Boot			Web开发框架
+c)	Spring Data			数据访问工具类, 包括jdbc, redis, mongoDB等
+d)	Spring Cloud		基于springBoot的微服务解决方案
+e)	Spring Security		在springBoot和 spring Security OAuth2基础上的安全框架
+f)  Spring Bus          消息总线
+
+五.  SpringBoot和SpringCloud版本对应
+ Spring Boot	     Spring Cloud
+1.5.2.RELEASE	    Dalston.RC1
+1.5.9.RELEASE	    Edgware.RELEASE
+2.0.2.RELEASE	    Finchley.BUILD-SNAPSHOT
+2.0.3.RELEASE	    Finchley.RELEASE
+
+六.  SpringCloud 1.x & 2.x jar包
+a)  1.x     spring-cloud-starter-xx
+a)  2.x     spring-cloud-starter-netflix-xx

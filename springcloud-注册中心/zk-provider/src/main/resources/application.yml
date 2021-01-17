@@ -1,0 +1,10 @@
+server:
+  port: 2006
+spring:
+  application:
+    name: /zk-provider
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:1003
+      discovery:
+        root: /zk

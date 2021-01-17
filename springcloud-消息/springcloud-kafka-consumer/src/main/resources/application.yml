@@ -1,0 +1,13 @@
+server:
+  port: 3004
+
+spring:
+  kafka:
+    bootstrap-servers: 127.0.0.1:1008 # 指定kafka 代理地址，可以多个
+    consumer:
+      group-id: testGroup #同一组中的consumer不会读取到同一个消息，依靠groud.id设置组名
+      enable-auto-commit: true  #自动提交
+      auto-commit-interval: 100 #消费者自动提交给Kafka的频率（以毫秒为单位）
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

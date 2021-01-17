@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/dubbo/springboot-dubbo-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dubbo/springboot-dubbo-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dubbo/springboot-dubbo-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/forkjoin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-缓存/springboot-jedis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-缓存/springcloud-mongodb/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-锁/springboot-redisson/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-锁/springboot-zookeeper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-provider-cluster-01/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-provider-cluster-02/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-provider-cluster-03/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/nacos-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/nacos-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/zk-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-注册中心/zk-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消息/springboot-rabbit-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消息/springboot-rabbit-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消息/springboot-rabbit-produce/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消息/springcloud-kafka-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消息/springcloud-kafka-produce/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消费者/eureka-consumer-feign/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-消费者/eureka-consumer-ribbon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-网关/springcloud-zuul/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-配置中心/nacos-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-配置中心/springcloudconfig-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-配置中心/springcloudconfig-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-降级和熔断/service-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-降级和熔断/service-provider/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
